@@ -58,7 +58,7 @@ class SugarWidgetSubPanelDetailViewLink extends SugarWidgetField
 			$key = $this->_get_column_alias($layout_def);
 			$key = strtoupper($key);
 		}
-		if (empty($layout_def['fields'][$key])) {
+		if (empty($layout_def['fields'][$key]) && $layout_def['fields'][$key] != 0) {
 			return "";
 		} else {
 			$value = $layout_def['fields'][$key];
