@@ -3756,7 +3756,11 @@ class SugarBean
         $GLOBALS['log']->debug("process_union_list_query: ".$query);
         if($max_per_page == -1)
         {
-            $max_per_page 	= $sugar_config['list_max_entries_per_subpanel'];
+            if ($subpanel_def->_instance_properties['records_per_page']) {
+     		$max_per_page = $subpanel_def->_instance_properties['records_per_page'] + 0;
+	    } else {
+     		$max_per_page   = $sugar_config['list_max_entries_per_subpanel'];
+	    }
         }
         if(empty($query_row_count))
         {
